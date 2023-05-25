@@ -1,6 +1,7 @@
 package linting_rule
 
 import (
+	api3 "github.com/Shonminh/kong-homework/apps/auth/api"
 	"github.com/Shonminh/kong-homework/apps/linting_rule/access/http"
 	"github.com/Shonminh/kong-homework/apps/linting_rule/api"
 	"github.com/Shonminh/kong-homework/apps/linting_rule/internal"
@@ -8,9 +9,14 @@ import (
 	api2 "github.com/Shonminh/kong-homework/apps/linting_rule/internal/repository/api"
 )
 
-func NewLintingRuleHttpSchema(service api.LintingRuleService) *http.LintingRuleHttpSchema {
+func NewLintingRuleHttpSchema(lintingRuleService api.LintingRuleService, accessService api3.ProjectAccessService,
+	authenticationService api3.AuthenticationService,
+) *http.LintingRuleHttpSchema {
+
 	return &http.LintingRuleHttpSchema{
-		LintingRuleService: service,
+		LintingRuleService:    lintingRuleService,
+		AuthenticationService: authenticationService,
+		ProjectAccessService:  accessService,
 	}
 }
 

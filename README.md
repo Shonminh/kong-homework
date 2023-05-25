@@ -32,5 +32,6 @@ LintingRule（Linting规则）
 
 ### 实体/值对象关系
 > 注：黄色为实体，蓝色为值对象
+
 ![img_1.png](img_1.png)
 
